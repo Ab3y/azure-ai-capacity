@@ -12,6 +12,8 @@ import {
   X,
   Brain,
   ArrowUpDown,
+  Clock,
+  ShieldCheck,
 } from 'lucide-react';
 import { useAppStore } from '@/store/useAppStore';
 import { cn } from '@/lib/utils';
@@ -23,7 +25,9 @@ const NAV_ITEMS = [
   { label: 'Analytics', path: '/analytics', icon: TrendingUp },
   { label: 'Regions', path: '/regions', icon: Globe },
   { label: 'Manage Capacity', path: '/capacity', icon: ArrowUpDown },
+  { label: 'Lead Times', path: '/lead-times', icon: Clock },
   { label: 'Best Practices', path: '/guides', icon: BookOpen },
+  { label: 'Audit Log', path: '/admin/audit', icon: ShieldCheck },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
 

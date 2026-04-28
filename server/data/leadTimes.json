@@ -1,0 +1,222 @@
+[
+  {
+    "id": "lt-001",
+    "model": "GPT-4o",
+    "deploymentType": "Standard",
+    "region": "East US",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "Self-service quota increase. Auto-approved within minutes for standard limits.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-002",
+    "model": "GPT-4o",
+    "deploymentType": "Global Standard",
+    "region": "Global",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "Higher default quotas. Self-service increase available.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-003",
+    "model": "GPT-4o",
+    "deploymentType": "Provisioned (PTU)",
+    "region": "East US",
+    "estimatedLeadTime": "3-5 business days",
+    "leadTimeDays": 5,
+    "status": "limited",
+    "notes": "Requires capacity request. PTU commitment minimum 1 month. Contact account team for >100 PTU.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-004",
+    "model": "GPT-4o-mini",
+    "deploymentType": "Standard",
+    "region": "East US",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "Self-service. High default quota limits.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-005",
+    "model": "GPT-4.1",
+    "deploymentType": "Standard",
+    "region": "Sweden Central",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "New model. Self-service deployment available.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-006",
+    "model": "GPT-4.1",
+    "deploymentType": "Global Standard",
+    "region": "Global",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "Available globally with high default limits.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-007",
+    "model": "o3",
+    "deploymentType": "Standard",
+    "region": "East US 2",
+    "estimatedLeadTime": "1-2 business days",
+    "leadTimeDays": 2,
+    "status": "limited",
+    "notes": "High demand model. May require support ticket for quota above default.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-008",
+    "model": "o3",
+    "deploymentType": "Global Standard",
+    "region": "Global",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "Self-service with global routing.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-009",
+    "model": "o4-mini",
+    "deploymentType": "Standard",
+    "region": "East US",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "Self-service deployment.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-010",
+    "model": "Claude 4 Sonnet",
+    "deploymentType": "Serverless (MaaS)",
+    "region": "East US",
+    "estimatedLeadTime": "1-3 business days",
+    "leadTimeDays": 3,
+    "status": "limited",
+    "notes": "Third-party model via Azure AI Foundry. Requires marketplace acceptance and quota approval.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-011",
+    "model": "Claude 4 Opus",
+    "deploymentType": "Serverless (MaaS)",
+    "region": "East US",
+    "estimatedLeadTime": "3-5 business days",
+    "leadTimeDays": 5,
+    "status": "constrained",
+    "notes": "High demand. Limited capacity. Enterprise agreement may be required.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-012",
+    "model": "Llama 4 Scout",
+    "deploymentType": "Serverless (MaaS)",
+    "region": "West US 3",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "Open-weight model. Self-service deployment via AI Foundry.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-013",
+    "model": "Mistral Large",
+    "deploymentType": "Serverless (MaaS)",
+    "region": "France Central",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "Self-service via AI Foundry marketplace.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-014",
+    "model": "GPT-4o",
+    "deploymentType": "Provisioned (PTU)",
+    "region": "West Europe",
+    "estimatedLeadTime": "5-10 business days",
+    "leadTimeDays": 10,
+    "status": "constrained",
+    "notes": "EU region under high demand for PTU. File support ticket with business justification. Enterprise agreement recommended.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-015",
+    "model": "GPT-4o",
+    "deploymentType": "Standard",
+    "region": "Japan East",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "Self-service. Lower default quotas than US regions.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-016",
+    "model": "text-embedding-3-large",
+    "deploymentType": "Standard",
+    "region": "East US",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "High default TPM limits. Self-service.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-017",
+    "model": "DALL-E 3",
+    "deploymentType": "Standard",
+    "region": "East US",
+    "estimatedLeadTime": "Instant",
+    "leadTimeDays": 0,
+    "status": "available",
+    "notes": "Limited to specific regions. Self-service deployment.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-018",
+    "model": "DeepSeek R1",
+    "deploymentType": "Serverless (MaaS)",
+    "region": "East US",
+    "estimatedLeadTime": "1-2 business days",
+    "leadTimeDays": 2,
+    "status": "limited",
+    "notes": "New model. Requires marketplace acceptance. Limited initial quota.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-019",
+    "model": "GPT-4 Turbo",
+    "deploymentType": "Provisioned (PTU)",
+    "region": "UK South",
+    "estimatedLeadTime": "3-5 business days",
+    "leadTimeDays": 5,
+    "status": "limited",
+    "notes": "Legacy model. Consider migrating to GPT-4o PTU for better availability.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  },
+  {
+    "id": "lt-020",
+    "model": "Any Model",
+    "deploymentType": "Enterprise (>500 PTU)",
+    "region": "Any Region",
+    "estimatedLeadTime": "10-15 business days",
+    "leadTimeDays": 15,
+    "status": "constrained",
+    "notes": "Large-scale enterprise capacity requires Microsoft account team engagement. MACC commitment and enterprise agreement typically required.",
+    "lastUpdated": "2026-04-25T00:00:00Z"
+  }
+]

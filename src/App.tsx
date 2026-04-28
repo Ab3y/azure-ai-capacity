@@ -9,6 +9,8 @@ import { AnalyticsPage } from '@/components/analytics/AnalyticsPage';
 import { RegionsPage } from '@/components/regions/RegionsPage';
 import { GuidesPage } from '@/components/guides/GuidesPage';
 import { CapacityChangePage } from '@/components/guides/CapacityChangePage';
+import { LeadTimesPage } from '@/components/leadtimes/LeadTimesPage';
+import { AuditPage } from '@/components/admin/AuditPage';
 import { SettingsPage } from '@/components/settings/SettingsPage';
 import { ThemeProvider } from '@/components/layout/ThemeProvider';
 import { DemoBanner } from '@/components/layout/DemoBanner';
@@ -41,6 +43,8 @@ export function App() {
           <Route path="/analytics" element={<AnalyticsPage />} />
           <Route path="/regions" element={<RegionsPage />} />
           <Route path="/capacity" element={<CapacityChangePage />} />
+          <Route path="/lead-times" element={<LeadTimesPage />} />
+          <Route path="/admin/audit" element={<AuditPage />} />
           <Route path="/guides" element={<GuidesPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

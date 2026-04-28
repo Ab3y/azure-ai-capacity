@@ -149,6 +149,20 @@ User Browser
 - **rate-limit-handler**: Implement retry-after logic and request throttling to respect ARM API rate limits (429 handling with exponential backoff)
 - **data-caching**: TanStack Query configuration — stale time, cache time, background refetch intervals, query key structure
 
+### Phase 4b: Lead Time API, Protected Pages & Audit System
+- **express-server**: Express.js backend server that serves both the static SPA files and the REST API, deployed to Azure App Service
+- **lead-time-api**: A password-protected REST API that returns estimated lead times for Azure AI capacity requests:
+  - Serves lead time data from an editable JSON config file (`server/data/leadTimes.json`)
+  - Requires JWT authentication via username/password login
+  - Logs every access (API call and page view) to an audit log (`server/data/audit.json`)
+  - Endpoints:
+    - `POST /api/auth/login` — authenticate with username/password, returns JWT
+    - `GET /api/lead-times` — returns lead time data (requires valid JWT)
+    - `GET /api/audit` — returns audit log (admin only, requires valid JWT)
+  - Lead time data includes: model name, deployment type, region, estimated lead time, status, last updated
+- **lead-time-page**: A password-protected page in the dashboard UI that displays lead time data in a searchable/filterable table with visual indicators (color-coded by lead time duration)
+- **admin-audit-page**: An admin-only page showing an audit log of who accessed the API or site, when, what they searched for, with filters by user/date/action
+
 ### Phase 5: Dashboard — Visual Summary
 - **summary-cards**: Top-level metric cards showing:
   - Total models deployed / Total quota allocated
