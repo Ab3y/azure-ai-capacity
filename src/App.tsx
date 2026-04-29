@@ -11,6 +11,7 @@ import { GuidesPage } from '@/components/guides/GuidesPage';
 import { CapacityChangePage } from '@/components/guides/CapacityChangePage';
 import { LeadTimesPage } from '@/components/leadtimes/LeadTimesPage';
 import { AuditPage } from '@/components/admin/AuditPage';
+import { BillingGuidePage } from '@/components/billing/BillingGuidePage';
 import { SettingsPage } from '@/components/settings/SettingsPage';
 import { ThemeProvider } from '@/components/layout/ThemeProvider';
 import { DemoBanner } from '@/components/layout/DemoBanner';
@@ -44,6 +45,7 @@ export function App() {
           <Route path="/regions" element={<RegionsPage />} />
           <Route path="/capacity" element={<CapacityChangePage />} />
           <Route path="/lead-times" element={<LeadTimesPage />} />
+          <Route path="/billing-guide" element={<BillingGuidePage />} />
           <Route path="/admin/audit" element={<AuditPage />} />
           <Route path="/guides" element={<GuidesPage />} />
           <Route path="/settings" element={<SettingsPage />} />

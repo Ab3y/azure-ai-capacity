@@ -14,6 +14,7 @@ import {
   ArrowUpDown,
   Clock,
   ShieldCheck,
+  DollarSign,
 } from 'lucide-react';
 import { useAppStore } from '@/store/useAppStore';
 import { cn } from '@/lib/utils';
@@ -26,6 +27,7 @@ const NAV_ITEMS = [
   { label: 'Regions', path: '/regions', icon: Globe },
   { label: 'Manage Capacity', path: '/capacity', icon: ArrowUpDown },
   { label: 'Lead Times', path: '/lead-times', icon: Clock },
+  { label: 'Billing Guide', path: '/billing-guide', icon: DollarSign },
   { label: 'Best Practices', path: '/guides', icon: BookOpen },
   { label: 'Audit Log', path: '/admin/audit', icon: ShieldCheck },
   { label: 'Settings', path: '/settings', icon: Settings },
