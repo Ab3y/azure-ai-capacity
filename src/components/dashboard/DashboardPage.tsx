@@ -4,28 +4,19 @@ import { UsageGauge } from './UsageGauge';
 import { AlertsBanner } from './AlertsBanner';
 import { TopConsumersChart } from './TopConsumersChart';
 import { UtilizationHeatmap } from './UtilizationHeatmap';
-
-// Demo data for initial visual rendering before Azure connection
-const DEMO_QUOTAS = [
-  { model: 'GPT-4o', used: 180000, limit: 240000, region: 'East US' },
-  { model: 'GPT-4o-mini', used: 95000, limit: 300000, region: 'East US' },
-  { model: 'GPT-4.1', used: 45000, limit: 80000, region: 'Sweden Central' },
-  { model: 'o3', used: 28000, limit: 30000, region: 'East US 2' },
-  { model: 'text-embedding-3-large', used: 500000, limit: 1000000, region: 'West US' },
-  { model: 'GPT-4 Turbo', used: 12000, limit: 80000, region: 'UK South' },
-  { model: 'Claude 4 Sonnet', used: 60000, limit: 100000, region: 'East US' },
-  { model: 'Llama 4 Scout', used: 15000, limit: 50000, region: 'West US 3' },
-];
-
-const ALERTS = DEMO_QUOTAS.filter(q => (q.used / q.limit) >= 0.75);
+import { useCustomerDataStore } from '@/store/useCustomerDataStore';
 
 export function DashboardPage() {
-  const totalModels = DEMO_QUOTAS.length;
-  const avgUtilization = Math.round(
-    DEMO_QUOTAS.reduce((sum, q) => sum + (q.used / q.limit) * 100, 0) / DEMO_QUOTAS.length
-  );
-  const regions = [...new Set(DEMO_QUOTAS.map(q => q.region))].length;
-  const criticalCount = DEMO_QUOTAS.filter(q => (q.used / q.limit) >= 0.9).length;
+  const { data } = useCustomerDataStore();
+  const quotas = data.quotas.map(q => ({ model: q.model, used: q.used, limit: q.limit, region: q.region }));
+  const alerts = quotas.filter(q => (q.used / q.limit) >= 0.75);
+
+  const totalModels = quotas.length;
+  const avgUtilization = quotas.length > 0 ? Math.round(
+    quotas.reduce((sum, q) => sum + (q.used / q.limit) * 100, 0) / quotas.length
+  ) : 0;
+  const regions = [...new Set(quotas.map(q => q.region))].length;
+  const criticalCount = quotas.filter(q => (q.used / q.limit) >= 0.9).length;
 
   return (
     <div className="space-y-6">
@@ -41,7 +32,7 @@ export function DashboardPage() {
       </div>
 
       {/* Alerts Banner */}
-      {ALERTS.length > 0 && <AlertsBanner alerts={ALERTS} />}
+      {alerts.length > 0 && <AlertsBanner alerts={alerts} />}
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -76,9 +67,9 @@ export function DashboardPage() {
       <div>
         <h3 className="text-lg font-semibold text-[hsl(var(--foreground))] mb-4">Quota Utilization by Model</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {DEMO_QUOTAS.map((q) => (
+          {quotas.map((q, i) => (
             <UsageGauge
-              key={q.model}
+              key={`${q.model}-${q.region}-${i}`}
               label={q.model}
               used={q.used}
               limit={q.limit}
@@ -90,7 +81,7 @@ export function DashboardPage() {
 
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <TopConsumersChart data={DEMO_QUOTAS} />
+        <TopConsumersChart data={quotas} />
         <UtilizationHeatmap />
       </div>
     </div>

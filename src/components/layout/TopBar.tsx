@@ -1,6 +1,7 @@
 import { Sun, Moon, Monitor, Menu, RefreshCw, User, LogOut, FlaskConical } from 'lucide-react';
 import { useAppStore } from '@/store/useAppStore';
 import { useAuth } from '@/auth/useAuth';
+import { ConfigMenu } from './ConfigMenu';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -56,6 +57,9 @@ export function TopBar({ onMenuToggle }: TopBarProps) {
           </button>
         ))}
       </div>
+
+      {/* Config Menu */}
+      <ConfigMenu />
 
       {/* Refresh */}
       <button

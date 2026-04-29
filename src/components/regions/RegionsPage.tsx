@@ -2,17 +2,7 @@ import { Globe, MapPin } from 'lucide-react';
 import { AZURE_REGIONS, GEOGRAPHIES } from '@/data/regionData';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-
-const DEMO_REGION_USAGE: Record<string, { deployments: number; utilization: number }> = {
-  eastus: { deployments: 5, utilization: 72 },
-  eastus2: { deployments: 2, utilization: 93 },
-  westus: { deployments: 2, utilization: 48 },
-  westus3: { deployments: 1, utilization: 30 },
-  swedencentral: { deployments: 2, utilization: 56 },
-  uksouth: { deployments: 1, utilization: 15 },
-  francecentral: { deployments: 1, utilization: 25 },
-  japaneast: { deployments: 1, utilization: 40 },
-};
+import { useCustomerDataStore } from '@/store/useCustomerDataStore';
 
 function getRegionColor(utilization: number): string {
   if (utilization >= 90) return 'bg-red-500 text-white';
@@ -23,7 +13,11 @@ function getRegionColor(utilization: number): string {
 }
 
 export function RegionsPage() {
+  const { data } = useCustomerDataStore();
   const [geoFilter, setGeoFilter] = useState('all');
+
+  const regionUsage: Record<string, { deployments: number; utilization: number }> = {};
+  data.regions.forEach(r => { regionUsage[r.name] = { deployments: r.deployments, utilization: r.utilization }; });
 
   const filteredRegions = AZURE_REGIONS.filter(r =>
     geoFilter === 'all' || r.geography === geoFilter
@@ -54,7 +48,7 @@ export function RegionsPage() {
       {/* Region Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {filteredRegions.map(region => {
-          const usage = DEMO_REGION_USAGE[region.name];
+          const usage = regionUsage[region.name];
           const utilization = usage?.utilization || 0;
           const deployments = usage?.deployments || 0;
 

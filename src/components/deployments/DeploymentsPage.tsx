@@ -2,32 +2,22 @@ import { Rocket } from 'lucide-react';
 import { useState } from 'react';
 import { StatusBadge } from '@/components/shared/StatusBadge';
 import { cn } from '@/lib/utils';
-
-const DEMO_DEPLOYMENTS = [
-  { name: 'gpt4o-prod', account: 'myoai-eastus', model: 'gpt-4o', version: '2024-11-20', sku: 'Standard', capacity: 120, region: 'East US', state: 'Succeeded', created: '2024-09-15' },
-  { name: 'gpt4o-mini-prod', account: 'myoai-eastus', model: 'gpt-4o-mini', version: '2024-07-18', sku: 'Standard', capacity: 150, region: 'East US', state: 'Succeeded', created: '2024-08-20' },
-  { name: 'gpt41-test', account: 'myoai-sweden', model: 'gpt-4.1', version: '2025-04-14', sku: 'Global Standard', capacity: 50, region: 'Sweden Central', state: 'Succeeded', created: '2025-04-16' },
-  { name: 'o3-reasoning', account: 'myoai-eastus2', model: 'o3', version: '2025-04-16', sku: 'Standard', capacity: 30, region: 'East US 2', state: 'Succeeded', created: '2025-04-17' },
-  { name: 'embed-large', account: 'myoai-westus', model: 'text-embedding-3-large', version: '1', sku: 'Standard', capacity: 500, region: 'West US', state: 'Succeeded', created: '2024-06-01' },
-  { name: 'gpt4-turbo-legacy', account: 'myoai-uksouth', model: 'gpt-4-turbo', version: '2024-04-09', sku: 'Provisioned', capacity: 100, region: 'UK South', state: 'Succeeded', created: '2024-05-10' },
-  { name: 'dalle3-images', account: 'myoai-eastus', model: 'dall-e-3', version: '3.0', sku: 'Standard', capacity: 6, region: 'East US', state: 'Succeeded', created: '2024-10-01' },
-  { name: 'claude-sonnet-test', account: 'foundry-eastus', model: 'claude-4-sonnet', version: '20250414', sku: 'Serverless', capacity: 100, region: 'East US', state: 'Succeeded', created: '2025-04-15' },
-  { name: 'gpt4o-staging', account: 'myoai-eastus', model: 'gpt-4o', version: '2024-11-20', sku: 'Standard', capacity: 40, region: 'East US', state: 'Creating', created: '2025-04-27' },
-];
+import { useCustomerDataStore } from '@/store/useCustomerDataStore';
 
 type ViewMode = 'cards' | 'table';
 
 export function DeploymentsPage() {
+  const { data } = useCustomerDataStore();
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
   const [groupBy, setGroupBy] = useState<'none' | 'account' | 'region' | 'model'>('none');
 
   const grouped = groupBy === 'none'
-    ? { 'All Deployments': DEMO_DEPLOYMENTS }
-    : DEMO_DEPLOYMENTS.reduce((acc, d) => {
+    ? { 'All Deployments': data.deployments }
+    : data.deployments.reduce((acc, d) => {
         const key = groupBy === 'account' ? d.account : groupBy === 'region' ? d.region : d.model;
         (acc[key] = acc[key] || []).push(d);
         return acc;
-      }, {} as Record<string, typeof DEMO_DEPLOYMENTS>);
+      }, {} as Record<string, typeof data.deployments>);
 
   return (
     <div className="space-y-6">
