@@ -34,13 +34,14 @@ export function hasValidAuthConfig(): boolean {
 export function buildMsalConfig(config?: AuthConfig | null): Configuration {
   const clientId = config?.clientId || import.meta.env.VITE_AZURE_CLIENT_ID || 'placeholder-client-id';
   const tenantId = config?.tenantId || import.meta.env.VITE_AZURE_TENANT_ID || 'common';
+  const appUrl = new URL(import.meta.env.BASE_URL, window.location.origin).href;
 
   return {
     auth: {
       clientId,
       authority: `https://login.microsoftonline.com/${tenantId}`,
-      redirectUri: window.location.origin,
-      postLogoutRedirectUri: window.location.origin,
+      redirectUri: appUrl,
+      postLogoutRedirectUri: appUrl,
     },
     cache: {
       cacheLocation: 'sessionStorage',
